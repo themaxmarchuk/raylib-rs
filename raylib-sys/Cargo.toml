@@ -9,11 +9,7 @@ repository = "https://github.com/deltaphc/raylib-rs"
 keywords = ["bindings", "raylib", "gamedev", "ffi"]
 categories = ["external-ffi-bindings"]
 edition = "2018"
-exclude = [
-    "raylib/examples/*",
-    "raylib/projects/*",
-    "raylib/templates/*"
-]
+exclude = ["raylib/examples/*", "raylib/projects/*", "raylib/templates/*"]
 
 [build-dependencies]
 fs_extra = "1.2"
@@ -34,3 +30,20 @@ opengl_33 = []
 opengl_21 = []
 # opengl_11 = [] I couldn't get this one working, the others were fine in my limited testing (unsure about wayland compatibility)
 opengl_es_20 = []
+
+# Allow custom cmake options
+# To use this this feature, set an environment variable called RAYLIB_CMAKE_OPTIONS
+# You can set this under the [env] key of the .cargo/config.toml in your own crate.
+#
+# Example .cargo/config.toml:
+#
+# [env]
+# RAYLIB_CMAKE_OPTIONS = "SUPPORT_SCREEN_CAPTURE=OFF SUPPORT_GIF_RECORDING=OFF"
+# # NOTE: each option is seperated by a space, and no spaces are allowed in the option itself.
+# # Also pro tip: you can use multiline strings in toml by using the triple quote syntax without
+# # it picking up the whitespace. This is useful for long cmake option lists.
+#
+# See a list of available options here: "https://github.com/raysan5/raylib/blob/master/CMakeOptions.txt"
+#
+# See "https://doc.rust-lang.org/nightly/cargo/reference/config.html#env" for more info.
+custom_cmake_options = []

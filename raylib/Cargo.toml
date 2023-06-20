@@ -27,5 +27,7 @@ with_serde = ["serde", "serde_json"]
 nalgebra_interop = ["nalgebra"]
 wayland = ["raylib-sys/wayland"]
 
+custom_cmake_options = ["raylib-sys/custom_cmake_options"]
+
 [package.metadata.docs.rs]
 features = ["nobuild"]
